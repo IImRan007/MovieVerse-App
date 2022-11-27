@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <div className="navbar bg-gray-600">
       <div className="flex-1">
-        <a href="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
           MovieVerse
-        </a>
+        </Link>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
@@ -16,9 +18,9 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <a href="/about" className="btn btn-ghost normal-case text-xl ml-2">
+        <Link to="/about" className="btn btn-ghost normal-case text-xl ml-2">
           About
-        </a>
+        </Link>
       </div>
     </div>
   );

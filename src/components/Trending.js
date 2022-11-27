@@ -1,27 +1,18 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import TrendingCard from "./TrendingCard";
+import MovieContext from "../context/movies/MovieContext";
 
 const Trending = () => {
-  const [trendingData, setTrendingData] = useState([]);
-
-  const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`;
+  const { trendingData, getTrendingData } = useContext(MovieContext);
 
   useEffect(() => {
     getTrendingData();
     // eslint-disable-next-line
   }, []);
 
-  const getTrendingData = async () => {
-    const response = await axios.get(url);
-    const data = await response.data.results;
-    console.log(data);
-    setTrendingData(data);
-  };
-
   return (
     <>
-      <h1 className="text-5xl font-bold m-7">Trending</h1>
+      <h1 className="text-5xl font-bold m-7 ml-12">Trending</h1>
       <div className="flex flex-row flex-wrap">
         {trendingData &&
           trendingData.map((item) => (

@@ -13,10 +13,12 @@ const TrendingCard = ({ item }) => {
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>{item.overview}</p>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
-        </div>
+        {item.release_date && (
+          <div className="card-actions justify-end">
+            <p>Release Date:</p>
+            <div className="badge badge-outline">{item.release_date}</div>
+          </div>
+        )}
       </div>
     </div>
   );
