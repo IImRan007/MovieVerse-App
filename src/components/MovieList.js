@@ -1,4 +1,4 @@
-const TrendingCard = ({ item }) => {
+const MovieList = ({ item }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl m-7">
       <figure>
@@ -24,4 +24,4 @@ const TrendingCard = ({ item }) => {
   );
 };
 
-export default TrendingCard;
+export default MovieList;

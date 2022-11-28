@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import TrendingCard from "./TrendingCard";
+import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 
 const Trending = () => {
@@ -15,9 +15,7 @@ const Trending = () => {
       <h1 className="text-5xl font-bold m-7 ml-12">Trending</h1>
       <div className="flex flex-row flex-wrap">
         {trendingData &&
-          trendingData.map((item) => (
-            <TrendingCard item={item} key={item.id} />
-          ))}
+          trendingData.map((item) => <MovieList item={item} key={item.id} />)}
       </div>
     </>
   );

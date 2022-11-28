@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
-import MovieContext from "../context/movies/MovieContext";
+import { useState } from "react";
 
 const Navbar = () => {
   const [text, setText] = useState("");
 
-  const { getSearchedMovies } = useContext(MovieContext);
-
   const handleChange = (e) => {
     setText(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    getSearchedMovies(text);
   };
 
   return (
@@ -25,21 +17,21 @@ const Navbar = () => {
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-              value={text}
-              onChange={handleChange}
-            />
-          </form>
+          <input
+            type="text"
+            placeholder="Search"
+            className="input input-bordered"
+            value={text}
+            onChange={handleChange}
+          />
         </div>
       </div>
       <div>
-        <button className="btn btn-ghost normal-case text-xl ml-2">
-          Search
-        </button>
+        <Link to={`/search/${text}`}>
+          <button className="btn btn-ghost normal-case text-xl ml-2">
+            Search
+          </button>
+        </Link>
       </div>
       <div>
         <Link to="/about" className="btn btn-ghost normal-case text-xl ml-2">
