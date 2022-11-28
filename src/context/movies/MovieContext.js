@@ -6,6 +6,7 @@ const MovieContext = createContext();
 export const MovieProvider = ({ children }) => {
   const [trendingData, setTrendingData] = useState([]);
   const [searchMovie, setSearchMovie] = useState([]);
+  const [actionMovie, setActionMovie] = useState([]);
 
   const getTrendingData = async () => {
     const trendingUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`;
@@ -25,13 +26,24 @@ export const MovieProvider = ({ children }) => {
     setSearchMovie(data);
   };
 
+  const getActionMovies = async () => {
+    const actionUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=28`;
+
+    const response = await axios.get(actionUrl);
+    const data = await response.data.results;
+    console.log(data);
+    setActionMovie(data);
+  };
+
   return (
     <MovieContext.Provider
       value={{
         trendingData,
         searchMovie,
+        actionMovie,
         getTrendingData,
         getSearchedMovies,
+        getActionMovies,
       }}
     >
       {children}

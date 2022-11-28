@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Category = () => {
   return (
     <div className="flex mt-7 justify-evenly flex-wrap">
-      <button className="btn bg-primary rounded-full">Action</button>
+      <Link to={`/action`}>
+        <button className="btn bg-primary rounded-full">Action</button>
+      </Link>
       <button className="btn bg-secondary rounded-full">Adventure</button>
       <button className="btn bg-red-700 rounded-full">Animation</button>
       <button className="btn bg-rose-900 rounded-full">Comedy</button>
