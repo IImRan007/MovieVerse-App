@@ -10,7 +10,7 @@ const SearchResults = () => {
   useEffect(() => {
     getSearchedMovies(params.text);
     // eslint-disable-next-line
-  }, []);
+  }, [params.text]);
 
   return (
     <>

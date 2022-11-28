@@ -1,12 +1,14 @@
 const MovieList = ({ item }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl m-7">
-      <figure>
-        <img
-          src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-          alt="Shoes"
-        />
-      </figure>
+      {item.poster_path && (
+        <figure>
+          <img
+            src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
+            alt="Shoes"
+          />
+        </figure>
+      )}
       <div className="card-body">
         <h2 className="card-title">
           {item.original_title}
