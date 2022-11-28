@@ -5,6 +5,7 @@ import About from "./pages/About";
 import MovieSearch from "./pages/MovieSearch";
 import { MovieProvider } from "./context/movies/MovieContext";
 import ActionMovies from "./pages/ActionMovies";
+import AdventureMovies from "./pages/AdventureMovies";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path={`/search/:text`} element={<MovieSearch />} />
           <Route path="/action" element={<ActionMovies />} />
+          <Route path="/adventure" element={<AdventureMovies />} />
         </Routes>
       </Router>
     </MovieProvider>

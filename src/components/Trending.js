@@ -12,7 +12,7 @@ const Trending = () => {
 
   return (
     <>
-      <h1 className="text-5xl font-bold m-7 ml-12">Trending</h1>
+      <h1 className="text-5xl font-bold m-7 ml-12">Trending Movies</h1>
       <div className="flex flex-row flex-wrap">
         {trendingData &&
           trendingData.map((item) => <MovieList item={item} key={item.id} />)}
