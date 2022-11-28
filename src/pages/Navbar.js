@@ -1,11 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Navbar = () => {
   const [text, setText] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text === "") {
+      alert("Please enter something");
+    } else {
+      navigate(`/search/${text}`);
+    }
   };
 
   return (
@@ -15,24 +25,24 @@ const Navbar = () => {
           MovieVerse
         </Link>
       </div>
-      <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered"
-            value={text}
-            onChange={handleChange}
-          />
+      <form onSubmit={handleSubmit}>
+        <div className="flex-none gap-2">
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered"
+              value={text}
+              onChange={handleChange}
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <Link to={`/search/${text}`}>
+        <div>
           <button className="btn btn-ghost normal-case text-xl ml-2">
             Search
           </button>
-        </Link>
-      </div>
+        </div>
+      </form>
       <div>
         <Link to="/about" className="btn btn-ghost normal-case text-xl ml-2">
           About

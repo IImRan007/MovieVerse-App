@@ -9,13 +9,29 @@ const Category = () => {
       <Link to="/adventure">
         <button className="btn bg-secondary rounded-full">Adventure</button>
       </Link>
-      <button className="btn bg-red-700 rounded-full">Animation</button>
-      <button className="btn bg-rose-900 rounded-full">Comedy</button>
-      <button className="btn bg-emerald-800 rounded-full">Crime</button>
-      <button className="btn bg-indigo-500 rounded-full">Documentary</button>
-      <button className="btn bg-fuchsia-600 rounded-full">Drama</button>
-      <button className="btn bg-blend-darken rounded-full">Horror</button>
-      <button className="btn bg-blue-900 rounded-full">Science Fiction</button>
+      <Link to="/animation">
+        <button className="btn bg-red-700 rounded-full">Animation</button>
+      </Link>
+      <Link to="/comedy">
+        <button className="btn bg-rose-900 rounded-full">Comedy</button>
+      </Link>
+      <Link to="/crime">
+        <button className="btn bg-emerald-800 rounded-full">Crime</button>
+      </Link>
+      <Link to="/documentary">
+        <button className="btn bg-indigo-500 rounded-full">Documentary</button>
+      </Link>
+      <Link to="/drama">
+        <button className="btn bg-fuchsia-600 rounded-full">Drama</button>
+      </Link>
+      <Link to="/horror">
+        <button className="btn bg-blend-darken rounded-full">Horror</button>
+      </Link>
+      <Link to="/scifi">
+        <button className="btn bg-blue-900 rounded-full">
+          Science Fiction
+        </button>
+      </Link>
     </div>
   );
 };
