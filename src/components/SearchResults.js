@@ -25,12 +25,12 @@ const SearchResults = () => {
     return <Spinner />;
   } else if (searchMovie.length === 0) {
     return (
-      <h1 className="text-5xl font-bold m-7 ml-12">{`No results found for: ${params.text}`}</h1>
+      <h1 className="text-3xl sm: text-center font-bold m-7 ml-12 lg:text-5xl xl:text-5xl 2xl:text-5xl">{`No results found for: ${params.text}`}</h1>
     );
   } else {
     return (
       <>
-        <h1 className="text-5xl font-bold m-7 ml-12">{`Search results for: ${params.text}`}</h1>
+        <h1 className="text-3xl sm: text-center font-bold m-7 ml-12 lg:text-5xl xl:text-5xl 2xl:text-5xl">{`Search results for: ${params.text}`}</h1>
         <div className="flex flex-row flex-wrap">
           {searchMovie &&
             searchMovie.map((item) => <MovieList item={item} key={item.id} />)}

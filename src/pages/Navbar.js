@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-gray-600">
-      <div className="flex-1">
+      <div className="md:flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           MovieVerse
         </Link>
