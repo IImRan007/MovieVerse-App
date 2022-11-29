@@ -3,13 +3,21 @@ import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import { useParams } from "react-router-dom";
 import Spinner from "./layouts/Spinner";
+import { getSearchedMovies } from "../context/movies/MovieActions";
 
 const SearchResults = () => {
-  const { searchMovie, getSearchedMovies, loading } = useContext(MovieContext);
+  const { searchMovie, loading, dispatch } = useContext(MovieContext);
   const params = useParams();
 
   useEffect(() => {
-    getSearchedMovies(params.text);
+    dispatch({ type: "SET_LOADING" });
+
+    const getSearchedData = async () => {
+      const data = await getSearchedMovies(params.text);
+      dispatch({ type: "GET_SEARCH", payload: data });
+    };
+
+    getSearchedData();
     // eslint-disable-next-line
   }, [params.text]);
 

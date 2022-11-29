@@ -2,12 +2,20 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
+import { getHorrorMovies } from "../context/movies/MovieActions";
 
 const HorrorResults = () => {
-  const { horrorMovie, getHorrorMovies, loading } = useContext(MovieContext);
+  const { horrorMovie, loading, dispatch } = useContext(MovieContext);
 
   useEffect(() => {
-    getHorrorMovies();
+    dispatch({ type: "SET_LOADING" });
+
+    const getHorrorData = async () => {
+      const data = await getHorrorMovies();
+      dispatch({ type: "GET_HORROR", payload: data });
+    };
+
+    getHorrorData();
     // eslint-disable-next-line
   }, []);
 

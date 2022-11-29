@@ -2,12 +2,20 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
+import { getDocMovies } from "../context/movies/MovieActions";
 
 const DocResults = () => {
-  const { docMovie, getDocMovies, loading } = useContext(MovieContext);
+  const { docMovie, loading, dispatch } = useContext(MovieContext);
 
   useEffect(() => {
-    getDocMovies();
+    dispatch({ type: "SET_LOADING" });
+
+    const getDocData = async () => {
+      const data = await getDocMovies();
+      dispatch({ type: "GET_DOC", payload: data });
+    };
+
+    getDocData();
     // eslint-disable-next-line
   }, []);
 

@@ -2,12 +2,20 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
+import { getActionMovies } from "../context/movies/MovieActions";
 
 const ActionResults = () => {
-  const { actionMovie, getActionMovies, loading } = useContext(MovieContext);
+  const { actionMovie, loading, dispatch } = useContext(MovieContext);
 
   useEffect(() => {
-    getActionMovies();
+    dispatch({ type: "SET_LOADING" });
+
+    const getActionData = async () => {
+      const data = await getActionMovies();
+      dispatch({ type: "GET_ACTION", payload: data });
+    };
+
+    getActionData();
     // eslint-disable-next-line
   }, []);
 

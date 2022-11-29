@@ -34,6 +34,7 @@ const Navbar = () => {
               className="input input-bordered"
               value={text}
               onChange={handleChange}
+              spellCheck={true}
             />
           </div>
         </div>

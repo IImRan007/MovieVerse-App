@@ -2,12 +2,20 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
+import { getTrendingData } from "../context/movies/MovieActions";
 
 const Trending = () => {
-  const { trendingData, getTrendingData, loading } = useContext(MovieContext);
+  const { loading, trendingData, dispatch } = useContext(MovieContext);
 
   useEffect(() => {
-    getTrendingData();
+    dispatch({ type: "SET_LOADING" });
+
+    const getTrendingMovies = async () => {
+      const data = await getTrendingData();
+      dispatch({ type: "GET_TRENDING", payload: data });
+    };
+
+    getTrendingMovies();
     // eslint-disable-next-line
   }, []);
 

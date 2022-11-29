@@ -2,12 +2,20 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
+import { getDramaMovies } from "../context/movies/MovieActions";
 
 const DramaResults = () => {
-  const { dramaMovie, getDramaMovies, loading } = useContext(MovieContext);
+  const { dramaMovie, loading, dispatch } = useContext(MovieContext);
 
   useEffect(() => {
-    getDramaMovies();
+    dispatch({ type: "SET_LOADING" });
+
+    const getDramaData = async () => {
+      const data = await getDramaMovies();
+      dispatch({ type: "GET_DRAMA", payload: data });
+    };
+
+    getDramaData();
     // eslint-disable-next-line
   }, []);
 
