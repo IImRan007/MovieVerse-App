@@ -12,6 +12,7 @@ const ActionResults = () => {
 
     const getActionData = async () => {
       const data = await getActionMovies();
+      console.log(data);
       dispatch({ type: "GET_ACTION", payload: data });
     };
 

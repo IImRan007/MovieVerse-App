@@ -21,6 +21,12 @@ const MovieList = ({ item }) => {
             <div className="badge badge-outline">{item.release_date}</div>
           </div>
         )}
+        {item.vote_average && (
+          <div className="card-actions justify-end">
+            <p>Rating:</p>
+            <div className="badge badge-outline">{item.vote_average}</div>
+          </div>
+        )}
       </div>
     </div>
   );
