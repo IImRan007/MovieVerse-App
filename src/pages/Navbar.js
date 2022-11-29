@@ -15,6 +15,7 @@ const Navbar = () => {
       alert("Please enter something");
     } else {
       navigate(`/search/${text}`);
+      setText("");
     }
   };
 
