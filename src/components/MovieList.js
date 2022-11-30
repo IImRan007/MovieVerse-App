@@ -1,4 +1,21 @@
+import { useContext, useEffect } from "react";
+import { fetchVideo } from "../context/movies/MovieActions";
+import MovieContext from "../context/movies/MovieContext";
+
 const MovieList = ({ item }) => {
+  const { video, dispatch } = useContext(MovieContext);
+
+  useEffect(() => {
+    const fetchVideoData = async () => {
+      const data = await fetchVideo(item.id);
+      dispatch({ type: "GET_VIDEO", payload: data });
+    };
+
+    fetchVideoData();
+  }, [item.id, dispatch]);
+
+  console.log(video, "video");
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl m-7">
       {item.poster_path && (
@@ -27,6 +44,17 @@ const MovieList = ({ item }) => {
             <div className="badge badge-outline">{item.vote_average}</div>
           </div>
         )}
+        <div>
+          <button>
+            <a
+              href={`https://www.youtube.com/watch?v=${video}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Play Trailer
+            </a>
+          </button>
+        </div>
       </div>
     </div>
   );

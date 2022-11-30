@@ -16,6 +16,7 @@ export const MovieProvider = ({ children }) => {
     dramaMovie: [],
     horrorMovie: [],
     scifiMovie: [],
+    video: [],
     loading: false,
   };
 

@@ -66,6 +66,12 @@ const MovieReducer = (state, action) => {
         searchMovie: action.payload,
         loading: false,
       };
+    case "GET_VIDEO":
+      return {
+        ...state,
+        video: action.payload,
+        loading: false,
+      };
     case "SET_LOADING":
       return {
         ...state,

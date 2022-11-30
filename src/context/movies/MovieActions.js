@@ -6,6 +6,7 @@ export const getTrendingData = async () => {
 
   const response = await axios.get(trendingUrl);
   const data = await response.data.results;
+  console.log(data);
   return data;
 };
 
@@ -96,5 +97,13 @@ export const getScifiMovies = async () => {
 
   const response = await axios.get(scifiUrl);
   const data = await response.data.results;
+  return data;
+};
+
+export const fetchVideo = async (id) => {
+  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+
+  const response = await axios.get(videoUrl);
+  const data = response.data;
   return data;
 };
