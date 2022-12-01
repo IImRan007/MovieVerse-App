@@ -24,7 +24,7 @@ const CrimeResults = () => {
   } else {
     return (
       <>
-        <div className="flex flex-row flex-wrap">
+        <div className="flex justify-around flex-row flex-wrap">
           {crimeMovie &&
             crimeMovie.map((item) => <MovieList item={item} key={item.id} />)}
         </div>

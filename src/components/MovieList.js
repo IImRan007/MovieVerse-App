@@ -8,7 +8,7 @@ const MovieList = ({ item }) => {
   useEffect(() => {
     const fetchVideoData = async () => {
       const data = await fetchVideo(item.id);
-      dispatch({ type: "GET_VIDEO", payload: data });
+      dispatch({ type: "GET_VIDEO", payload: data.results[0]?.key });
     };
 
     fetchVideoData();

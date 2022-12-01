@@ -23,7 +23,7 @@ const ScifiResults = () => {
   } else {
     return (
       <>
-        <div className="flex flex-row flex-wrap">
+        <div className="flex justify-around flex-row flex-wrap">
           {scifiMovie &&
             scifiMovie.map((item) => <MovieList item={item} key={item.id} />)}
         </div>

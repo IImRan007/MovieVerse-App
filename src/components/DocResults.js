@@ -24,7 +24,7 @@ const DocResults = () => {
   } else {
     return (
       <>
-        <div className="flex flex-row flex-wrap">
+        <div className="flex justify-around flex-row flex-wrap">
           {docMovie &&
             docMovie.map((item) => <MovieList item={item} key={item.id} />)}
         </div>

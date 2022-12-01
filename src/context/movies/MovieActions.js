@@ -100,6 +100,7 @@ export const getScifiMovies = async () => {
   return data;
 };
 
+// Get video trailer
 export const fetchVideo = async (id) => {
   const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
