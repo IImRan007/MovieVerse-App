@@ -1,20 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchVideo } from "../context/movies/MovieActions";
-import MovieContext from "../context/movies/MovieContext";
 
-const MovieList = ({ item }) => {
-  const { video, dispatch } = useContext(MovieContext);
+const MovieList = ({ item, id }) => {
+  const [video, setVideo] = useState("");
 
   useEffect(() => {
     const fetchVideoData = async () => {
-      const data = await fetchVideo(item.id);
-      dispatch({ type: "GET_VIDEO", payload: data.results[0]?.key });
+      try {
+        const data = await fetchVideo(id);
+        if (data) {
+          setVideo(data[0]?.key);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchVideoData();
-  }, [item.id, dispatch]);
-
-  console.log(video, "video");
+  }, [id]);
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl m-7">
@@ -22,13 +25,13 @@ const MovieList = ({ item }) => {
         <figure>
           <img
             src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-            alt="Shoes"
+            alt="poster"
           />
         </figure>
       )}
       <div className="card-body">
         <h2 className="card-title">
-          {item.original_title}
+          {item.original_title ? item.original_title : item.name}
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>{item.overview}</p>
@@ -46,13 +49,16 @@ const MovieList = ({ item }) => {
         )}
         <div>
           <button>
-            <a
-              href={`https://www.youtube.com/watch?v=${video}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Play Trailer
-            </a>
+            {video && (
+              <a
+                className="btn normal-case text-xl"
+                href={`https://www.youtube.com/watch?v=${video}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Play Trailer
+              </a>
+            )}
           </button>
         </div>
       </div>

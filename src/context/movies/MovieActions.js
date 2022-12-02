@@ -1,12 +1,19 @@
 import axios from "axios";
 
+export const catchError = (fn) => {
+  try {
+    fn();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // Get trending movies
 export const getTrendingData = async () => {
   const trendingUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`;
 
   const response = await axios.get(trendingUrl);
   const data = await response.data.results;
-  console.log(data);
   return data;
 };
 
@@ -102,9 +109,13 @@ export const getScifiMovies = async () => {
 
 // Get video trailer
 export const fetchVideo = async (id) => {
-  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  try {
+    const videoUrl = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}`;
 
-  const response = await axios.get(videoUrl);
-  const data = response.data;
-  return data;
+    const response = await axios.get(videoUrl);
+    const data = response.data.results;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };

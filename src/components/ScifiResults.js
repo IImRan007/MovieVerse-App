@@ -25,7 +25,9 @@ const ScifiResults = () => {
       <>
         <div className="flex justify-around flex-row flex-wrap">
           {scifiMovie &&
-            scifiMovie.map((item) => <MovieList item={item} key={item.id} />)}
+            scifiMovie.map((item) => (
+              <MovieList item={item} key={item.id} id={item.id} />
+            ))}
         </div>
       </>
     );

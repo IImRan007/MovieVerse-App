@@ -27,7 +27,7 @@ const AnimationResults = () => {
         <div className="flex justify-around flex-row flex-wrap">
           {animationMovie &&
             animationMovie.map((item) => (
-              <MovieList item={item} key={item.id} />
+              <MovieList item={item} key={item.id} id={item.id} />
             ))}
         </div>
       </>

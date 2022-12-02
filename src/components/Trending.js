@@ -16,8 +16,7 @@ const Trending = () => {
     };
 
     getTrendingMovies();
-    // eslint-disable-next-line
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <Spinner />;
@@ -29,7 +28,9 @@ const Trending = () => {
         </h1>
         <div className="flex justify-around flex-row flex-wrap">
           {trendingData &&
-            trendingData.map((item) => <MovieList item={item} key={item.id} />)}
+            trendingData.map((item) => (
+              <MovieList item={item} key={item.id} id={item.id} />
+            ))}
         </div>
       </>
     );

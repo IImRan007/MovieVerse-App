@@ -26,7 +26,9 @@ const HorrorResults = () => {
       <>
         <div className="flex justify-around flex-row flex-wrap">
           {horrorMovie &&
-            horrorMovie.map((item) => <MovieList item={item} key={item.id} />)}
+            horrorMovie.map((item) => (
+              <MovieList item={item} key={item.id} id={item.id} />
+            ))}
         </div>
       </>
     );

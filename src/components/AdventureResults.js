@@ -27,7 +27,7 @@ const AdventureResults = () => {
         <div className="flex justify-around flex-row flex-wrap">
           {adventureMovie &&
             adventureMovie.map((item) => (
-              <MovieList item={item} key={item.id} />
+              <MovieList item={item} key={item.id} id={item.id} />
             ))}
         </div>
       </>
