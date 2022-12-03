@@ -47,16 +47,16 @@ const MovieList = ({ item, id }) => {
             <div className="badge badge-outline">{item.vote_average}</div>
           </div>
         )}
-        <div>
+        <div className=" flex justify-center mt-8 ">
           <button>
             {video && (
               <a
-                className="btn normal-case text-xl"
+                className="btn btn-wide normal-case text-xl"
                 href={`https://www.youtube.com/watch?v=${video}`}
                 target="_blank"
                 rel="noreferrer"
               >
-                Play Trailer
+                Watch Trailer
               </a>
             )}
           </button>
