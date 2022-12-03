@@ -20,9 +20,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-gray-600">
+    <div className="navbar bg-purple-800">
       <div className="md:flex-1">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link
+          to="/"
+          className=" ml-10 normal-case text-xl text-white font-bold"
+        >
           MovieVerse
         </Link>
       </div>
@@ -32,7 +35,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search"
-              className="input input-bordered"
+              className="input input-bordered "
               value={text}
               onChange={handleChange}
               spellCheck={true}
@@ -40,13 +43,16 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-          <button className="btn btn-ghost normal-case text-xl ml-2">
+          <button className="btn btn-ghost normal-case text-xl ml-2 text-white">
             Search
           </button>
         </div>
       </form>
       <div>
-        <Link to="/about" className="btn btn-ghost normal-case text-xl ml-2">
+        <Link
+          to="/about"
+          className="btn btn-ghost normal-case text-xl ml-2 text-white"
+        >
           About
         </Link>
       </div>
