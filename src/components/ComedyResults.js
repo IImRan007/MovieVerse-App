@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
-import { getComedyMovies } from "../context/movies/MovieActions";
+import { getMovies } from "../context/movies/MovieActions";
 
 const ComedyResults = () => {
   const { comedyMovie, loading, dispatch } = useContext(MovieContext);
@@ -11,7 +11,7 @@ const ComedyResults = () => {
     dispatch({ type: "SET_LOADING" });
 
     const getComedyData = async () => {
-      const data = await getComedyMovies();
+      const data = await getMovies("comedy");
       dispatch({ type: "GET_COMEDY", payload: data });
     };
 

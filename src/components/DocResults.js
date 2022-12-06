@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import MovieList from "./MovieList";
 import MovieContext from "../context/movies/MovieContext";
 import Spinner from "./layouts/Spinner";
-import { getDocMovies } from "../context/movies/MovieActions";
+import { getMovies } from "../context/movies/MovieActions";
 
 const DocResults = () => {
   const { docMovie, loading, dispatch } = useContext(MovieContext);
@@ -11,7 +11,7 @@ const DocResults = () => {
     dispatch({ type: "SET_LOADING" });
 
     const getDocData = async () => {
-      const data = await getDocMovies();
+      const data = await getMovies("documentary");
       dispatch({ type: "GET_DOC", payload: data });
     };
 
