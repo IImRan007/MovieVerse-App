@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default {
   action: 28,
   adventure: 12,
